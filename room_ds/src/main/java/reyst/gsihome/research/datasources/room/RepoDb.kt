@@ -2,6 +2,7 @@ package reyst.gsihome.research.datasources.room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import reyst.gsihome.research.repository.core.IRepoDto
 
 @Entity(tableName = "repo_table", primaryKeys = ["user_name", "id"])
@@ -15,6 +16,9 @@ data class RepoDb(
     override val name: String,
 
     @ColumnInfo(name = "full_name")
-    override val fullName: String
+    override val fullName: String,
+
+    @Ignore
+    override val isChecked: Boolean = false
 
 ): IRepoDto
